@@ -1,0 +1,236 @@
+﻿<%@ Master Language="C#"   AutoEventWireup="true" CodeFile="index.Master.cs" Inherits="SteamHadaWeb.indexMaster" %>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>BoGames</title>
+      <script typeof="application/javascript">
+          function loginIncorrecto() {
+              alert("Su usuario o contraseña son incorrectos");
+          }
+        function fbLogoutUser() {
+            FB.getLoginStatus(function (response) {
+                console.log(response);
+                if (response && response.status === 'connected') {
+                    FB.logout(function(response) {
+                        document.location.reload();
+                    });
+                }
+            });
+          }
+          function actualizaPagina() {
+             FB.getLoginStatus(function (response) {
+                console.log(response);
+                if (response) {
+                     if (response.status === 'connected') {
+                          console.log("<br>Connected to Facebook");
+                          //SUCCESS
+                          FB.api('/me', { locale: 'tr_TR', fields: 'name, email,first_name, last_name' },
+                              function (response) {
+
+
+                                  $.ajax({
+                                      type: "POST",
+                                      url: 'registro.aspx/cargaDatosFB',
+                                      data: "{ correo: \"" + response.email + "\", nombreF: \"" + response.first_name + "\", apellidos: \"" + response.last_name + "\",ruta:\"http://graph.facebook.com/" + response.id + "/picture?type=normal\" }",
+                                      contentType: "application/json; charset=utf-8",
+                                      dataType: "json",
+                                      success: function (msg) {
+                                          console.log(msg);
+                                          if (msg.d) {
+                                              document.location.href = "Index.aspx";
+                                              alert("Se ha conectado correctamente");
+                                          } else {
+                                              alert("Ha ocurrido un fallo con el login");
+                                          }
+                                      },
+                                      error: function (e) {
+                                          alert("Error con el login de facebook");
+                                      },
+                                  });
+
+
+                              }
+                          );
+
+                      }
+                      else if (response.status === 'not_authorized') {
+                          console.log("Failed to Connect");
+
+                          //FAILED
+                      } else {
+                          console.log("Logged Out");
+
+                          //UNKNOWN ERROR
+                      }
+                  
+                }
+            }); 
+          }
+         (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+          window.fbAsyncInit = function () {
+              FB.init({
+                  appId: '450906905482962',
+                  cookie: true,
+                  xfbml: true,
+                  version: 'v3.3'
+              });
+
+              /*   FB.login(function (response) {
+                             console.log(response);
+                   statusChangeCallback(response);
+                 }, {scope: 'public_profile,email'});*/
+              FB.AppEvents.logPageView();
+
+
+              
+          }
+
+
+
+
+
+          // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+                // The response object is returned with a status field that lets the
+                // app know the current login status of the person.
+                // Full docs on the response object can be found in the documentation
+                // for FB.getLoginStatus().
+                if (response.status === 'connected') {
+                    // Logged into your app and Facebook.
+                   
+                  //  registro_aspx.cargaDatosFB();
+                    console.log(response.email);
+                } else {
+                    // The person is not logged into your app or we are unable to tell.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                      'into this app.';
+                }
+        }
+
+
+            // This function is called when someone finishes with the Login
+            // Button.  See the onlogin handler attached to it in the sample
+            // code below.
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+
+    </script>
+    <link rel="stylesheet" href="style/stylesheet.css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="style/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+
+</head>
+
+
+
+
+
+<body>
+     <div id="fb-root"></div>
+    <script
+        async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=450906905482962">
+
+    </script>
+        <form runat="server">
+    <div id="header">
+        &nbsp;<div ID="top" runat="server">
+            <a id="index" href="Index.aspx">
+                <asp:Image ImageUrl="imagenes/TITULO.png" runat="server"/></a>
+            <a id="registro" href="registro.aspx">
+                <asp:Image ID="imageRegistro" ImageUrl="imagenes/next.png" runat="server"/> <asp:Label ID="textRegistro" runat="server"> Registro</asp:Label> </a>
+            
+            <a id="login" href="login.aspx">
+                <asp:Image ID="imageLogin" ImageUrl="imagenes/avatar-1.png" runat="server"/> <asp:Label ID="textLogin" runat="server"> Login</asp:Label> </a>
+        </div>
+    </div>
+
+
+        <div id="navigation">
+            <asp:Menu ID="Menu1" Width="100%" IncludeStyleBlock="false" runat="server" CssClass="nav" Orientation="Horizontal" Font-Size="X-Large" StaticMenuStyle-Width="100%"
+                OnMenuItemClick="Menu1_MenuItemClick">
+                <Items>
+
+                    <asp:MenuItem ImageUrl="imagenes/shopping-bag.png" Text="Tienda">
+                        <asp:MenuItem Text="Juegos">
+                            <asp:MenuItem Text="Acción" NavigateUrl="./Accion.aspx" />
+                            <asp:MenuItem Text="Aventuras" NavigateUrl="./Aventuras.aspx" />
+                            <asp:MenuItem Text="Disparos" NavigateUrl="./Disparos.aspx" />
+                            <asp:MenuItem Text="Deportes" NavigateUrl="./Deportes.aspx" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Merchandising" NavigateUrl="MerchPage.aspx" />
+                        <asp:MenuItem Text="Sorteos" NavigateUrl="~/Sorteo.aspx" />
+                    </asp:MenuItem>
+                    <asp:MenuItem ImageUrl="imagenes/folder.png" Text="Biblioteca" NavigateUrl="~/Biblioteca.aspx" />
+                    <asp:MenuItem ImageUrl="imagenes/chat.png" Text="Comunidad">
+                        <asp:MenuItem Text="Foros" NavigateUrl="Foro.aspx" />
+                        <asp:MenuItem Text="Eventos" NavigateUrl="Eventos.aspx" />
+                    </asp:MenuItem>
+                    <asp:MenuItem ImageUrl="imagenes/phone-call.png" Text="FAQ" NavigateUrl="FAQ.aspx" />
+                    <asp:MenuItem ImageUrl="imagenes/avatar.png" Text="Usuario">
+                        <asp:MenuItem Text="Factura" NavigateUrl="Factura.aspx" />
+                        <asp:MenuItem Text="Reclamaciones" NavigateUrl="~/Reclamaciones.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Configuración" NavigateUrl="UserDetails.aspx" />
+                        <asp:MenuItem Text="Cerrar sesión" Selectable="false"/>
+                    </asp:MenuItem>
+                </Items>
+            </asp:Menu>
+
+            
+        </div>
+			<br />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <p>
+            </p>
+            <p>
+            </p>
+        </asp:ContentPlaceHolder>
+    </form>
+
+
+    <div id="footer">
+        <div class="row">
+            <div class="column_footer">
+                <p>Dirección: Carretera San Vicente del Raspeig s/n</p>
+                <p>03690</p>
+                <p>San Vicent del Raspeig - Alicante</p>
+                <p>Tel. 96 590 3401 - Fax 96 590 3464</p>
+            </div>
+            <div class="column_footer">
+                <p>Síguenos en las redes sociales:</p>
+                <br />
+                <a href="">
+                    <img src="imagenes/social-twitter-icon.png" style="height: 20px; width: 30px" />Twitter </a>
+                <br />
+                <a href="">
+                    <img src="imagenes/Facebook_icon.jpg" style="height: 20px; width: 30px" />Facebook </a>
+            </div>
+            <div class="column_footer">
+                <p><a href="Index.aspx">Inicio  </a></p>
+                <p><a href="Foro.aspx">Foro </a></p>
+                <p>Atención al cliente</p>
+                <p>BoChen@juegos.es</p>
+            </div>
+        </div>
+    </div>
+  
+</body>
+</html>

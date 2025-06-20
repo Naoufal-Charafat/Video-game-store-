@@ -1,0 +1,440 @@
+* {
+    margin: 0px 2px 0px 0px;
+    padding: 0px;
+}
+
+#index {
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: left;
+}
+#index img {
+    width:20% !important;
+    margin-top:15px;
+}
+li a img{
+    width:16px;
+    height:16px;
+    margin-right:10px;
+}
+
+#top a img {
+    width: 16px;
+    margin-right: 10px;
+}
+
+#oferta a img {
+    max-width: 1024px;
+}
+
+#top a {
+    color: lightgreen;
+}
+
+#top {
+    margin-top: 20px;
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#nav {
+    width: 100%;
+}
+
+#header {
+    margin: auto;
+    width: auto;
+    background-image: linear-gradient(grey, black);
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+#footer {
+    background-color: deepskyblue;
+    width: 100%;
+}
+
+#userConfiguration {
+    width: 100%;
+}
+
+.column_footer {
+    color: white;
+    float: left;
+    width: 30.33%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    background-color: deepskyblue;
+}
+
+.row::after {
+    /*padding-left: 200px;*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.column_UserConfiguration {
+    padding-left: 200px;
+    float: left;
+    padding: 10px;
+    height: 800px;
+
+}
+
+.columnLeft_UserConfiguration {
+    width: 20%;
+    padding-left: 60px;
+}
+
+.columnRight_UserConfiguration {
+    width: 70%;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 1px;
+    background-color: #99CCFF;
+    width: 700px;
+    height: 600px;
+}
+
+
+ul, ol {
+    list-style: none;
+    height: 29px;
+    width: 1937px;
+}
+
+.nav {
+    width: 100%;
+}
+
+    .nav ul {
+        width: 100% !important;
+    }
+
+        .nav ul li {
+            width: 19.5%;
+            float: left;
+        }
+
+            .nav ul li a {
+                background-color: #f2f2f2;
+                color: #000000;
+                text-decoration: none;
+                padding: 10px 12px;
+                display: block;
+                border-color: #000;
+                width: 104%;
+            }
+
+                .nav ul li a:hover {
+                    background-color: #b3b3b3;
+                }
+
+            .nav ul li ul {
+                display: none;
+                position: absolute !important;
+                width: fit-content !important;
+            }
+
+            .nav ul li:hover > ul {
+                display: block;
+            }
+
+            .nav ul li ul li {
+                position: relative;
+                min-width: 167px;
+            }
+
+#Menu1\:submenu\:3 > li {
+    top: 0px;
+    right: -30px;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    font-family: arial;
+    margin-left:20px;
+    background-color: #99CCFF;
+}
+
+#body {
+    margin-top: 50px;
+    margin-left: 20px;
+    background-color: #FFFFFF;
+}
+
+
+.btnAnyadirCarrito {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+    .btnAnyadirCarrito:hover {
+        opacity: 0.7;
+    }
+
+.card a {
+    text-decoration: none;
+    color: #000;
+}
+
+    .card a:hover {
+        text-decoration: none;
+        color: mediumblue;
+    }
+
+.card.sorteo {
+    width: 100%;
+}
+.card.sorteo div {
+    border-style: solid;
+    display:inline-block;
+ }
+.card.sorteo div img{
+    max-width:700px;
+    padding:16px;
+}
+.sorteoPage{
+    width:100%;
+    height:100%;
+    padding:20px;
+}
+
+    .sorteoPage img {
+        margin-top: 20px;
+        max-width: 700px;
+    }
+
+    .sorteoPage p {
+        font-size: 18px;
+    }
+
+    .sorteoPage .Participa {
+        border-style: none;
+        border-color: inherit;
+        border-width: medium;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+.Participa {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+    .Participa:hover {
+        opacity: 0.7;
+    }
+
+#oferta {
+    text-align: center;
+}
+
+#h1fact {
+    text-align: center;
+    font-size: 150px;
+}
+#fact{
+    text-align: center;
+}
+
+
+hr {
+    color: black;
+}
+
+#subtitulofaq {
+    color: #00B9B0;
+    font-size: 50px;
+}
+.preguntasfaq {
+    color: #000000;
+    font-size: 25px;
+}
+#faq {
+    text-align: center;
+}
+
+#events {
+    text-align: center;
+}
+
+.h1factreclam {
+    text-align: center;
+    font-size: 150px;
+    color: #07120a;
+}
+.imagenfact {
+    width: 52px;
+    height: 49px;
+}
+.sizefact {
+    width: 456px;
+    height: 24px;
+    font-size: large;
+}
+#divgridviewcentro {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#divprincipalrecla{
+    text-align:center;
+    
+}
+
+
+#registrobody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#registro_button {
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#registro_form {
+    text-align: center;
+    display: none;
+}
+
+.even > li {
+    float: left;
+    width: 24%;
+}
+
+.even li a {
+    text-align: center;
+    background-color: #00CC00;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 12px;
+    display: block;
+    border-color: #000;
+    width: 103%;
+    font-weight: 700;
+    text-align: left;
+}
+
+    .even li a:hover {
+        background-color: #b3b3b3;
+    }
+
+.even li ul {
+    display: none;
+    position: absolute;
+    min-width: 167px;
+}
+
+.even li:hover > ul {
+    display: block;
+}
+
+.even li ul li {
+    position: relative;
+}
+
+    .even li ul li ul {
+        width: fit-content !important;
+        top: 0px;
+    }
+
+
+
+
+
+
+
+/*mGrid  EL ESTILO PARA LA TABLA DE BIBILOTECA*/
+.mGrid {
+    width: 50%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+
+    .mGrid td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+
+    .mGrid th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #424242 url('../imagenes/grd_head.png') repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    .mGrid .alt {
+        background: #fcfcfc url('../imagenes/grd_alt.png') repeat-x top;
+    }
+
+    .mGrid .pgr {
+        background: #424242 url('../imagenes/grd_pgr.png') repeat-x top;
+    }
+
+        .mGrid .pgr table {
+            margin: 5px 0;
+        }
+
+        .mGrid .pgr td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .mGrid .pgr a {
+            color: #666;
+            text-decoration: none;
+        }
+
+            .mGrid .pgr a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/

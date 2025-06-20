@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Index.aspx">
+<siteMapNode url="~/10.aspx" title="Tienda" description="Tienda">
+      <siteMapNode title="Juegos"
+        url="~/2.aspx"
+        description="Juegos">
+        <siteMapNode url="~/3.aspx"
+         title="Acción"
+        description="Juegos de acción" />
+        <siteMapNode url="~/I4ndex.aspx"
+          title="Aventuras"
+          description="Juegos de aventuras" />
+        <siteMapNode url="~/1.aspx"
+ title="Disparos"
+ description="Juegos de disparos" />
+        <siteMapNode url="~/5.aspx"
+       title="Deportes"
+       description="Juegos de deportes" />
+      </siteMapNode>
+  <siteMapNode url="~/MerchPage.aspx"
+ title="Merchandising"
+ description="Pagina de Merchandising" />
+  <siteMapNode url="~/43.aspx"
+ title="Sorteos"
+ description="Pagina de Sorteos" />
+  </siteMapNode>
+  <siteMapNode url="~/6.aspx"
+ title="Biblioteca"
+ description="Pagina de Biblioteca" />
+  <siteMapNode url="~/7.aspx"
+ title="Comunidad"
+ description="Pagina de Comunidad">
+    <siteMapNode url="~/Foro.aspx"
+     title="Foro"
+     description="Pagina de foro" />
+    <siteMapNode url="~/Eventos.aspx"
+     title="Eventos"
+     description="Pagina de Eventos" />
+  </siteMapNode>
+  <siteMapNode url="~/FAQ.aspx"
+ title="FAQ"
+ description="Pagina de FAQ" />
+  <siteMapNode url="~/8.aspx"
+ title="Usuario"
+ description="Pagina de Usuario">
+    <siteMapNode url="~/Factura.aspx"
+ title="Facturas"
+ description="Pagina de facturas" />
+    <siteMapNode url="~/UserDetails.aspx"
+ title="Configuración"
+ description="Pagina de configuración" />
+  </siteMapNode>
+  </siteMapNode>
+</siteMap>
